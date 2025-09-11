@@ -1,0 +1,200 @@
+/* src/styles/ListaServicos.css */
+
+.lista-servicos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #700052; /* Cor roxa */
+  padding: 2vh;
+  color: white;
+}
+
+.lista-servicos-header {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5vh;
+  padding: 0 2vw;
+}
+
+.header-spacer {
+  width: 150px; /* Largura aproximada para balancear o espaço dos botões */
+}
+
+.lista-servicos-logo {
+  width: 25vmin;
+  max-width: 150px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.lista-servicos-header .back-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lista-servicos-header .back-button:hover {
+  background-color: #d32f2f;
+}
+
+.lista-servicos-content {
+  background-color: #F8AD16; /* Cor amarela */
+  color: #700052; /* Cor roxa */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90vw;
+  max-width: 900px;
+  text-align: center;
+}
+
+.lista-servicos-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: calc(100% - 40px);
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #700052;
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+  color: #700052;
+}
+
+.search-input::placeholder {
+  color: #a0a0a0;
+}
+
+.add-servico-button { /* Estilo para o botão "Novo Serviço" */
+  background-color: #F8AD16; /* Cor amarela */
+  color: #700052; /* Cor roxa */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-servico-button:hover {
+  background-color: #e09b10;
+}
+
+
+.servicos-list-grid { /* Usando 'servicos-list-grid' para os cards de serviço */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.servico-card { /* Usando 'servico-card' para cada card de serviço */
+  background-color: #ffffff;
+  border: 1px solid #700052;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.servico-card h3 {
+  color: #700052;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.servico-card p {
+  margin-bottom: 5px;
+  font-size: 0.95em;
+  color: #333;
+}
+
+.servico-card p strong {
+  color: #700052;
+}
+
+.edit-button {
+  background-color: #F8AD16;
+  color: #700052;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-top: 15px;
+  align-self: flex-end;
+}
+
+.edit-button:hover {
+  background-color: #e09b10;
+  transform: scale(1.02);
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+  .lista-servicos-content {
+    padding: 15px;
+  }
+
+  .servicos-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servico-card {
+    padding: 15px;
+  }
+
+  .servico-card h3 {
+    font-size: 1.1em;
+  }
+
+  .servico-card p {
+    font-size: 0.85em;
+  }
+
+  .edit-button {
+    font-size: 0.8em;
+    padding: 8px 12px;
+  }
+
+  .search-input {
+    width: calc(100% - 30px);
+  }
+
+  .lista-servicos-header {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 3vh;
+  }
+  .header-spacer {
+    display: none;
+  }
+  .header-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+}

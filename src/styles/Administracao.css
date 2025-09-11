@@ -1,0 +1,96 @@
+/* src/styles/Administracao.css */
+
+.administracao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #700052; /* Cor roxa */
+  padding: 2vh;
+  color: white;
+}
+
+.administracao-header {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5vh;
+  padding: 0 2vw;
+}
+
+.administracao-logo {
+  width: 25vmin;
+  max-width: 150px;
+}
+
+.administracao-header .back-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.administracao-header .back-button:hover {
+  background-color: #d32f2f;
+}
+
+.administracao-content {
+  background-color: #F8AD16; /* Cor amarela */
+  color: #700052; /* Cor roxa */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80vw;
+  max-width: 400px;
+  text-align: center;
+}
+
+.administracao-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.administracao-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço entre os botões */
+  margin-top: 20px;
+}
+
+.administracao-button {
+  background-color: #700052; /* Cor roxa */
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.administracao-button:hover {
+  background-color: #5d0046; /* Tom mais escuro no hover */
+  transform: scale(1.02);
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+  .administracao-content {
+    padding: 20px;
+  }
+
+  .administracao-button {
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+}

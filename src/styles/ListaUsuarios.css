@@ -1,0 +1,212 @@
+/* src/styles/ListaUsuarios.css */
+
+/* Contêiner principal da página de lista de usuários */
+.lista-usuarios-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Garante que o contêiner ocupe pelo menos a altura total da tela */
+  background-color: #700052; /* Cor roxa principal */
+  padding: 2vh; /* Padding vertical responsivo */
+  color: white; /* Cor do texto padrão para elementos dentro do contêiner */
+}
+
+/* Cabeçalho da página de lista de usuários (logo e botões) */
+.lista-usuarios-header {
+  width: 100%;
+  max-width: 900px; /* Largura máxima para o cabeçalho em telas grandes */
+  display: flex;
+  justify-content: space-between; /* Espaça os itens (logo no centro, botões nas laterais) */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  margin-bottom: 5vh; /* Margem inferior responsiva */
+  padding: 0 2vw; /* Padding horizontal responsivo */
+}
+
+/* Espaçador vazio para balancear o espaço à esquerda do logo */
+.header-spacer {
+  width: 150px; /* Largura aproximada para balancear o espaço dos botões à direita */
+}
+
+/* Estilo para a imagem do logo no cabeçalho */
+.lista-usuarios-logo {
+  width: 25vmin; /* Tamanho da logo responsivo (25% do menor lado da viewport) */
+  max-width: 150px; /* Limita o tamanho máximo da logo */
+}
+
+/* Contêiner para os botões "Novo Usuário" e "Voltar" no cabeçalho */
+.header-buttons {
+  display: flex;
+  gap: 10px; /* Espaço entre os botões */
+}
+
+/* Estilo para o botão "Voltar" no cabeçalho */
+.lista-usuarios-header .back-button {
+  background-color: #f44336; /* Cor vermelha para o botão de voltar */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s; /* Transição suave para o efeito hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
+
+.lista-usuarios-header .back-button:hover {
+  background-color: #d32f2f; /* Tom mais escuro no hover */
+}
+
+/* Contêiner do conteúdo principal da lista de usuários */
+.lista-usuarios-content {
+  background-color: #F8AD16; /* Cor amarela para o fundo do conteúdo */
+  color: #700052; /* Cor roxa para o texto dentro do conteúdo */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90vw; /* Largura responsiva (90% da largura da viewport) */
+  max-width: 900px; /* Limita a largura máxima do conteúdo */
+  text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+/* Estilo para o título "Lista de Usuários" */
+.lista-usuarios-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Estilo para o campo de pesquisa */
+.search-input {
+  width: calc(100% - 40px); /* Ajusta a largura para considerar padding */
+  padding: 12px;
+  margin-bottom: 20px; /* Espaço abaixo do campo de pesquisa */
+  border: 1px solid #700052; /* Borda roxa */
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box; /* Inclui padding e borda na largura */
+  color: #700052; /* Cor do texto */
+}
+
+.search-input::placeholder {
+  color: #a0a0a0; /* Cor do placeholder */
+}
+
+/* Estilo para o botão "Novo Usuário" */
+.add-usuario-button {
+  background-color: #F8AD16; /* Cor amarela */
+  color: #700052; /* Cor roxa para o texto */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-usuario-button:hover {
+  background-color: #e09b10; /* Tom mais escuro no hover */
+}
+
+/* Estilos para o layout de lista/grid dos usuários */
+.usuarios-list-grid {
+  display: grid; /* Usa CSS Grid para o layout */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas responsivas e compactas */
+  gap: 20px; /* Espaçamento entre os cards */
+  margin-top: 20px;
+}
+
+/* Estilo para cada card de usuário na lista */
+.usuario-card {
+  background-color: #ffffff; /* Fundo branco para os cards */
+  border: 1px solid #700052; /* Borda roxa */
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espaça o conteúdo e o botão */
+}
+
+.usuario-card h3 {
+  color: #700052;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.usuario-card p {
+  margin-bottom: 5px;
+  font-size: 0.95em;
+  color: #333; /* Cor mais escura para o texto dos detalhes */
+}
+
+.usuario-card p strong {
+  color: #700052; /* Cor roxa para os títulos dos campos */
+}
+
+/* Estilo para o botão "Editar" dentro do card */
+.edit-button {
+  background-color: #F8AD16; /* Cor amarela para o botão de editar */
+  color: #700052; /* Cor roxa para o texto do botão */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-top: 15px; /* Espaço acima do botão */
+  align-self: flex-end; /* Alinha o botão à direita dentro do card */
+}
+
+.edit-button:hover {
+  background-color: #e09b10; /* Tom mais escuro no hover */
+  transform: scale(1.02);
+}
+
+/* Media Query para telas menores (smartphones) */
+@media (max-width: 768px) {
+  .lista-usuarios-content {
+    padding: 15px;
+  }
+
+  .usuarios-list-grid {
+    grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+  }
+
+  .usuario-card {
+    padding: 15px;
+  }
+
+  .usuario-card h3 {
+    font-size: 1.1em;
+  }
+
+  .usuario-card p {
+    font-size: 0.85em;
+  }
+
+  .edit-button {
+    font-size: 0.8em;
+    padding: 8px 12px;
+  }
+
+  .search-input {
+    width: calc(100% - 30px); /* Ajusta a largura para o padding em telas menores */
+  }
+
+  .lista-usuarios-header {
+    flex-direction: column; /* Empilha os itens em telas pequenas */
+    gap: 10px;
+    margin-bottom: 3vh;
+  }
+  .header-spacer {
+    display: none; /* Esconde o espaçador em telas pequenas */
+  }
+  .header-buttons {
+    width: 100%;
+    justify-content: center; /* Centraliza os botões em telas pequenas */
+  }
+}

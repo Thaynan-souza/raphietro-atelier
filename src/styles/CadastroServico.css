@@ -1,0 +1,112 @@
+/* src/styles/CadastroServico.css */
+
+.cadastro-servico-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #700052; /* Cor roxa */
+  padding: 2vh;
+  color: white;
+}
+
+.cadastro-servico-header {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5vh;
+  padding: 0 2vw;
+}
+
+.cadastro-servico-logo {
+  width: 25vmin;
+  max-width: 150px;
+}
+
+.cadastro-servico-header .back-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cadastro-servico-header .back-button:hover {
+  background-color: #d32f2f;
+}
+
+.cadastro-servico-content {
+  background-color: #F8AD16; /* Cor amarela */
+  color: #700052; /* Cor roxa */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80vw;
+  max-width: 400px;
+  text-align: center;
+}
+
+.cadastro-servico-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.cadastro-servico-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cadastro-servico-form label {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: -5px;
+}
+
+.cadastro-servico-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 22px);
+  box-sizing: border-box;
+  color: #700052;
+}
+
+.cadastro-servico-button {
+  background-color: #700052; /* Cor roxa */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.cadastro-servico-button:hover {
+  background-color: #5d0046;
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+  .cadastro-servico-content {
+    padding: 20px;
+  }
+
+  .cadastro-servico-form input {
+    font-size: 0.9em;
+  }
+
+  .cadastro-servico-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

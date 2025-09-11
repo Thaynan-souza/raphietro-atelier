@@ -1,0 +1,84 @@
+/* src/styles/Dashboard.css - Versão Responsiva */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #700052;
+  padding: 2vh; /* Use vh para padding vertical */
+  color: white;
+}
+
+.dashboard-header {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 5vh;
+  padding: 0 2vw; /* Use vw para padding horizontal */
+}
+
+.dashboard-logo {
+  width: 25vmin; /* Use vmin para que a logo se adapte ao menor lado da tela */
+  max-width: 150px;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  padding: 1em 1.5em; /* Use em para padding relativo ao tamanho da fonte */
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2em; /* Use em para espaçamento relativo */
+  width: 80vw; /* Use vw para a largura */
+  max-width: 300px;
+}
+
+.dashboard-button {
+  background-color: #F8AD16;
+  color: #700052;
+  padding: 1.2em 1.5em;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-button:hover {
+  transform: scale(1.05);
+}
+
+/* Media Query para telas menores (celulares) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1vh;
+  }
+
+  .dashboard-logo {
+    width: 20vmin;
+  }
+
+  .dashboard-button {
+    font-size: 1em;
+    padding: 1em 1.2em;
+  }
+}

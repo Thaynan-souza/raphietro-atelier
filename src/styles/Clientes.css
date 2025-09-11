@@ -1,0 +1,129 @@
+/* src/styles/Clientes.css */
+
+/* Contêiner principal da página de clientes */
+.clientes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Garante que o contêiner ocupe pelo menos a altura total da tela */
+  background-color: #700052; /* Cor roxa principal */
+  padding: 2vh; /* Padding vertical responsivo */
+  color: white; /* Cor do texto padrão para elementos dentro do contêiner */
+}
+
+/* Cabeçalho da página de clientes (logo e botão de voltar) */
+.clientes-header {
+  width: 100%;
+  max-width: 600px; /* Largura máxima para o cabeçalho em telas grandes */
+  display: flex;
+  justify-content: space-between; /* Espaça os itens (logo à esquerda, botão à direita) */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  margin-bottom: 5vh; /* Margem inferior responsiva */
+  padding: 0 2vw; /* Padding horizontal responsivo */
+}
+
+/* Estilo para a imagem do logo no cabeçalho */
+.clientes-logo {
+  width: 25vmin; /* Tamanho da logo responsivo (25% do menor lado da viewport) */
+  max-width: 150px; /* Limita o tamanho máximo da logo */
+}
+
+/* Estilo para o botão "Voltar" */
+.back-button {
+  background-color: #f44336; /* Cor vermelha para o botão de voltar/sair */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s; /* Transição suave para o efeito hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
+
+.back-button:hover {
+  background-color: #d32f2f; /* Tom mais escuro no hover */
+}
+
+/* Contêiner do formulário de cadastro de clientes */
+.clientes-content {
+  background-color: #F8AD16; /* Cor amarela para o fundo do formulário */
+  color: #700052; /* Cor roxa para o texto dentro do formulário */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80vw; /* Largura responsiva (80% da largura da viewport) */
+  max-width: 400px; /* Limita a largura máxima do formulário */
+  text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+/* Estilo para o título "Cadastro de Clientes" */
+.clientes-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilo para o formulário */
+.clientes-form {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna */
+  gap: 15px; /* Espaço entre os campos do formulário */
+}
+
+/* Estilo para os rótulos (labels) dos campos */
+.clientes-form label {
+  font-weight: bold;
+  text-align: left; /* Alinha o texto do rótulo à esquerda */
+  margin-bottom: -5px; /* Ajusta o espaço entre o rótulo e o campo de input */
+}
+
+/* Estilo para os campos de input e textarea */
+.clientes-form input,
+.clientes-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: calc(100% - 22px); /* Calcula a largura total, subtraindo padding e borda */
+  box-sizing: border-box; /* Garante que padding e borda sejam incluídos na largura */
+}
+
+/* Estilo específico para o textarea (campo de observações, se reintroduzido) */
+.clientes-form textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 80px; /* Altura mínima para o campo de texto */
+}
+
+/* Estilo para o botão de salvar cliente */
+.clientes-button {
+  background-color: #700052; /* Cor roxa */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s; /* Transição suave para o efeito hover */
+}
+
+.clientes-button:hover {
+  background-color: #5d0046; /* Tom mais escuro no hover */
+}
+
+/* Media Query para telas menores (smartphones) */
+@media (max-width: 768px) {
+  .clientes-content {
+    padding: 20px; /* Reduz o padding interno do formulário em telas menores */
+  }
+
+  .clientes-form input,
+  .clientes-form textarea {
+    font-size: 0.9em; /* Reduz um pouco a fonte dos campos em telas menores */
+  }
+
+  .clientes-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
