@@ -3,32 +3,40 @@
 import React, { useState } from 'react';
 import { auth, db } from '../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, collection } from 'firebase/firestore';
+import { doc, setDoc, getDoc, collection } from 'firebase/firestore';
 
 import '../styles/CadastroUsuario.css';
 import logo from '../assets/logo-raphietro.png';
 
-const CadastroUsuario = ({ onNavigate }) => {
+const CadastroUsuario = ({ onNavigate, userRole }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [nome, setNome] = useState('');
   const [userType, setUserType] = useState('costureira');
+  const [isCostureiraAtiva, setIsCostureiraAtiva] = useState(false);
 
   const usersCollectionRef = collection(db, 'users');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (userRole !== 'adm') {
+      alert('Acesso negado. Somente administradores podem cadastrar usuários.');
+      onNavigate('administracao');
+      return;
+    }
+
     try {
       // 1. Cria o usuário no Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const user = userCredential.user;
 
       // 2. Salva informações adicionais do usuário no Cloud Firestore
-      // O ID será o UID gerado pelo próprio Firebase Authentication
       await setDoc(doc(db, 'users', user.uid), {
         nome: nome,
         email: email,
         userType: userType,
+        isCostureiraAtiva: isCostureiraAtiva,
         createdAt: new Date()
       });
 
@@ -37,6 +45,7 @@ const CadastroUsuario = ({ onNavigate }) => {
       setSenha('');
       setNome('');
       setUserType('costureira');
+      setIsCostureiraAtiva(false);
     } catch (error) {
       console.error('Erro ao cadastrar usuário:', error);
       alert(`Erro ao cadastrar usuário: ${error.message}`);
@@ -91,6 +100,16 @@ const CadastroUsuario = ({ onNavigate }) => {
             <option value="recepcao">Recepção</option>
             <option value="adm">Administrador</option>
           </select>
+          
+          <div className="checkbox-group">
+            <input
+              type="checkbox"
+              id="is-costureira-ativa"
+              checked={isCostureiraAtiva}
+              onChange={(e) => setIsCostureiraAtiva(e.target.checked)}
+            />
+            <label htmlFor="is-costureira-ativa">É Costureira Ativa (Aparece na lista de pedidos)</label>
+          </div>
 
           <button type="submit" className="cadastro-usuario-button">Cadastrar Usuário</button>
         </form>
