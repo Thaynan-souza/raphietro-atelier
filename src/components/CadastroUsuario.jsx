@@ -1,9 +1,9 @@
 // src/components/CadastroUsuario.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { auth, db } from '../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, getDoc, collection } from 'firebase/firestore';
+import { doc, setDoc, getDoc, collection, getDocs } from 'firebase/firestore';
 
 import '../styles/CadastroUsuario.css';
 import logo from '../assets/logo-raphietro.png';
@@ -13,13 +13,29 @@ const CadastroUsuario = ({ onNavigate, userRole }) => {
   const [senha, setSenha] = useState('');
   const [nome, setNome] = useState('');
   const [userType, setUserType] = useState('costureira');
-  const [isCostureiraAtiva, setIsCostureiraAtiva] = useState(false);
+  const [employeeId, setEmployeeId] = useState('');
 
   const usersCollectionRef = collection(db, 'users');
 
+  // Efeito para buscar o próximo employeeId disponível ao carregar o componente
+  useEffect(() => {
+    const fetchNextEmployeeId = async () => {
+      try {
+        const usersCollection = collection(db, 'users');
+        const userDocs = await getDocs(usersCollection);
+        const nextId = String(userDocs.size + 1).padStart(2, '0');
+        setEmployeeId(nextId);
+      } catch (error) {
+        console.error('Erro ao buscar próximo employeeId:', error);
+      }
+    };
+
+    fetchNextEmployeeId();
+  }, []); // Dependência vazia para rodar apenas uma vez
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (userRole !== 'adm') {
       alert('Acesso negado. Somente administradores podem cadastrar usuários.');
       onNavigate('administracao');
@@ -36,7 +52,7 @@ const CadastroUsuario = ({ onNavigate, userRole }) => {
         nome: nome,
         email: email,
         userType: userType,
-        isCostureiraAtiva: isCostureiraAtiva,
+        employeeId: employeeId,
         createdAt: new Date()
       });
 
@@ -45,7 +61,12 @@ const CadastroUsuario = ({ onNavigate, userRole }) => {
       setSenha('');
       setNome('');
       setUserType('costureira');
-      setIsCostureiraAtiva(false);
+      // Recarrega o próximo employeeId
+      const usersCollection = collection(db, 'users');
+      const userDocs = await getDocs(usersCollection);
+      const nextId = String(userDocs.size + 1).padStart(2, '0');
+      setEmployeeId(nextId);
+
     } catch (error) {
       console.error('Erro ao cadastrar usuário:', error);
       alert(`Erro ao cadastrar usuário: ${error.message}`);
@@ -101,14 +122,9 @@ const CadastroUsuario = ({ onNavigate, userRole }) => {
             <option value="adm">Administrador</option>
           </select>
           
-          <div className="checkbox-group">
-            <input
-              type="checkbox"
-              id="is-costureira-ativa"
-              checked={isCostureiraAtiva}
-              onChange={(e) => setIsCostureiraAtiva(e.target.checked)}
-            />
-            <label htmlFor="is-costureira-ativa">É Costureira Ativa (Aparece na lista de pedidos)</label>
+          <div className="employee-id-display">
+            <label>ID do Usuário:</label>
+            <span className="employee-id-value">{employeeId}</span>
           </div>
 
           <button type="submit" className="cadastro-usuario-button">Cadastrar Usuário</button>
